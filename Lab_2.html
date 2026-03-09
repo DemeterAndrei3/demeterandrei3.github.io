@@ -25,14 +25,34 @@ div {
 </head>
 <body>
 
-<h1>Despre Masini</h1>
-<h2>Printre principalele componente ale masinilor sunt:</h2>
-<h3>Motorul</h3>
-<h4>Volanul</h4>
-<h5>Rotile</h5>
-<h6>Farurile</h6>
+////////////////////////////
+  <h2>Printre componente ale masinilor sunt:</h2>
 
+<ol>
+  <li>Motorul</li>
+  <li>Volanul</li>
+  <li>Rotile</li>
+</ol>
+
+<ol start="5">
+  <li>Farurile</li>
+  <li>Teava de esapament</li>
+  <li>Caroseria</li>
+</ol>
+  //////////////////////////////////////
 <h1>Exemple de masini</h1>  
+  <label for="cars">Choose a car:</label>
+<select name="cars" id="cars">
+<optgroup label="Masini Franta">
+<option value="renault">Renault</option>
+<option value="dacia">Dacia</option>
+</optgroup>
+<optgroup label="Masini Japonia">
+<option value="kia">Kia</option>
+<option value="toyota">Toyota</option>
+</optgroup>
+</select>
+  ////////////////////////////////////////
   <table>
   <tr>
     <th>Numele</th>
@@ -42,7 +62,7 @@ div {
   <tr>
     <td>Duster</td>
     <td>Renault/Dacia</td>
-    <td>benzina</td>
+    <td>Benzina</td>
   </tr>
   <tr>
     <td>Bigster</td>
@@ -62,7 +82,7 @@ div {
   <tr>
     <td>Hyryder</td>
     <td>Toyota</td>
-    <td>Hibrid</td>
+    <td><div>Hibrid</div></td>
   </tr>
   <tr>
     <td>Grand Vitara</td>
@@ -71,7 +91,7 @@ div {
   </tr>
 </table>
 <a href="https://www.capital.ro/10-masini-noi-pe-benzina-si-diesel-ce-vor-fi-lansate-in-2025-masinile-pe-care-trebuie-sa-pui-ochii.html">Site din care m-am inspirat</a>
-<p>Toate cele hibride sau care au o varianta hibrida sunt subliniate!</p>
+<p>Toate cele <b>hibride</b> sau care au o varianta hibrida sunt subliniate!</p>
 <h2>Acum voi prezenta Suzuki Swift Hybrid</h2>
   <a><strong>În fiecare detaliu este o declarație vizuală care spune lumii că știi cum să joci jocul vieții.</strong></a>
 <h4>Un aspect nou și jucăuș</h4>
@@ -89,7 +109,57 @@ div {
   <li>MILD HYBRID 12V
         CVT 2WD PASSION</li>
 </ul>
-  <ol>Bibliografie</ol>
-<a href= "https://auto.suzuki.ro/cars/swift-hybrid">Aici.</a>
+  <!DOCTYPE html>
+<html>
+<head>
+<title>Formular</title>
+</head>
+
+<body>
+
+<form id="myForm">
+
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" value="demeterandrei" required><br><br>
+
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" value="#Popdad3690" required><br><br>
+
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" value="demeterandrei2004@gmail.com" required><br><br>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="Male" checked> Male
+<input type="radio" name="gender" value="Female"> Female<br><br>
+
+<button type="button" onclick="submitForm()">Submit</button>
+
+</form>
+
+<script>
+function submitForm() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let gender = document.querySelector('input[name="gender"]:checked').value;
+
+    alert(
+        "Username: " + username + "\n" +
+        "Password: " + password + "\n" +
+        "Email: " + email + "\n" +
+        "Gender: " + gender
+    );
+}
+</script>
+
+</body>
+</html>
+<h3>Bibliografie</h3>
+<a href= "https://auto.suzuki.ro/cars/swift-hybrid">https://auto.suzuki.ro/cars/swift-hybrid</a>
+<a href= "https://www.capital.ro/10-masini-noi-pe-benzina-si-diesel-ce-vor-fi-lansate-in-2025-masinile-pe-care-trebuie-sa-pui-ochii.html">https://www.capital.ro/10-masini-noi-pe-benzina-si-diesel-ce-vor-fi-lansate-in-2025-masinile-pe-care-trebuie-sa-pui-ochii.html </a>
+
+  <h4>Volanul</h4>
+<h5>Rotile</h5>
+<h6>Farurile</h6>
 </body>
 </html>
