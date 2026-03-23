@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!-- Ex1: 1a -->
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicație Listă de Cumpărături</title>
+</head>
+
+<body height="1200">
+<center>
+<h1>Lista de gestionare a unei liste de cumparaturi</h1>
+<br>
+<h2>Lista mea de cumparaturi. Acest site web, contine lista mea de cumparaturi.</h2>
+
+<p>
+            Pentru a adăuga un produs, completați formularul de mai jos și apăsați 
+            <strong>Submit</strong>. Puteți folosi și câmpurile <b>opționale</b> pentru detalii suplimentare.
+        </p>
+<br>
+<img src="https://4.bp.blogspot.com/-3G0VsSbpugA/V5sv_8AAQuI/AAAAAAAAAyw/PuKOHdp74jol_6sCbewMs88VASYjJcI1ACLcB/s1600/buy-1297592_1280.jpg" alt="Lista de cumparaturi" width="300" height="400" title="Lista de cumparaturi a mea">
+</center>
+
+<br>
+<!-- Ex1: 1b -->
+
+<fieldset>
+      <legend>Adauga un produs</legend>
+         <form id="Lista">
+             Nume produs:
+             <input type="text" name="NumeProdus" maxlength="20" size="20" value=""><br><br>
+             Cantitate:
+             <input type="number name="cantitate" max="100" step="1"><br><br>
+
+            Categorie:
+            <select name="categorie" multiple size="4">
+                <option selected>Alimente</option>
+                <option>Băuturi</option>
+                <option>Igienă</option>
+                <option>Electrocasnice</option>
+            </select><br><br>
+
+            Proprietăți:<br>
+            <input type="checkbox" name="bio" checked> BIO<br>
+            <input type="checkbox" name="promo" checked> Promoție<br>
+                        <input type="checkbox" name="niciuna" disabled> Nici una<br><br>
+
+            Observații:<br>
+            <textarea cols="30" rows="3" readonly>Introduceți doar dacă este necesar.</textarea><br><br>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </fieldset>
+
+    <br><br>
+<!-- Ex1: 1c -->
+ <table border="1" width="60%" align="center">
+        <tr bgcolor="#dddddd">
+            <th>Nume</th>
+            <th>Preț</th>
+            <th>Cantitate</th>
+        </tr>
+
+        <tr>
+            <td>Laptele</td>
+            <td align="right">7.50</td>
+            <td valign="middle">2</td>
+        </tr>
+
+        <tr>
+            <td>Pâine</td>
+            <td align="right">3.00</td>
+            <td valign="middle">1</td>
+        </tr>
+
+        <tr>
+            <td>Ouă</td>
+            <td align="right">12.00</td>
+            <td valign="middle">1</td>
+        </tr>
+
+        <tr bgcolor="#eeeeee">
+            <td colspan="3" align="center">Total produse: 3</td>
+        </tr>
+    </table>
+
+    <br><br>
+<!-- Ex1: 1d -->
+    <div>
+        <h3>Pași de utilizare</h3>
+        <ol start="3">
+            <li>Completezi formularul</li>
+            <li>Apeși Submit</li>
+            <li>Produsul se adaugă în listă</li>
+        </ol>
+
+        <h3>Categorii disponibile</h3>
+        <ul>
+            <li>Alimente</li>
+            <li>Băuturi</li>
+            <li>Igienă</li>
+            <li>Electrocasnice</li>
+        </ul>
+
+        <a href="https://google.com" target="_blank" name="linkGoogle">Caută produse</a><br>
+        <a href="#formular" target="_self" name="linkFormular">Mergi la formular</a>
+    </div>
+
+    <br><br>
+<!--Ex2: 2a-->
+<script>
+var numeMagazin = "SuperMarket";
+let numarProduse = 10;
+const versiune = "1.0.0";
+
+        alert(numeMagazin);
+        console.log(numarProduse);
+        document.write("Versiune aplicație: " + versiune + "<br><br>");
+ 
+/*-- Ex2: 2b */
+
+ function calculeazaTotal(pret, cantitate) {
+            return pret * cantitate;
+        }
+
+        const aplicaDiscount = function(total, procent) {
+            return total - (total * procent / 100);
+        };
+
+        const formatPret = suma => suma.toFixed(2) + " RON";
+
+/*Ex2: 2c */ 
+let total = calculeazaTotal(25.5, 3);
+        let totalDiscount = aplicaDiscount(total, 10);
+        let totalFormatat = formatPret(totalDiscount);
+
+        console.log("Total final: " + totalFormatat);
+
+/*Ex3: 3a */
+ let produse = [
+            { nume: "Lapte", pret: 7.5, cantitate: 2, categorie: "Alimente" },
+            { nume: "Paine", pret: 3, cantitate: 1, categorie: "Alimente" },
+            { nume: "Apa", pret: 5, cantitate: 6, categorie: "Băuturi" },
+            { nume: "Săpun", pret: 4, cantitate: 2, categorie: "Igienă" },
+            { nume: "Cafea", pret: 15, cantitate: 1, categorie: "Băuturi" }
+        ];
+
+        produse.forEach(p => console.log(p));
+
+        let totale = produse.map(p => p.pret * p.cantitate);
+        console.log("Totaluri per produs:", totale);
+
+/*Ex3: 3b */
+ var magazin = {
+            nume: "MegaMarket",
+            adresa: "Str. Principală 10",
+            produse: produse,
+
+            afiseazaProduse: function() {
+                this.produse.forEach(p => console.log(p));
+            },
+
+            calculeazaValoareTotala: function() {
+                return this.produse.reduce((s, p) => s + p.pret * p.cantitate, 0);
+            },
+
+            gasesteProdus: function(numeProdus) {
+                return this.produse.find(p => p.nume === numeProdus);
+            }
+        };
+
+        magazin.afiseazaProduse();
+
+        document.write("Valoare totală stoc: " + magazin.calculeazaValoareTotala() + " RON<br>");
+
+        console.log("Căutare produs existent:", magazin.gasesteProdus("Lapte"));
+        console.log("Căutare produs inexistent:", magazin.gasesteProdus("Pizza") || "Nu există");
+  
+/* Ex4 */
+  document.getElementById("formular").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let nume = document.getElementsByName("numeProdus")[0].value;
+            let cant = document.getElementsByName("cantitate")[0].value;
+            let cat = document.getElementsByName("categorie")[0].value;
+
+            if (nume.trim() === "") {
+                alert("Numele produsului nu poate fi gol!");
+                return;
+            }
+
+            if (cant <= 0) {
+                alert("Cantitatea trebuie să fie pozitivă!");
+                return;
+            }
+
+            let produsNou = {
+                nume: nume,
+                pret: 0,
+                cantitate: Number(cant),
+                categorie: cat
+            };
+
+            console.log("Produs adăugat:", produsNou);
+
+            produse.push(produsNou);
+            console.log("Produs adăugat cu succes!");
+        });
+
+    </script>
+  
+</body>
+</html>
