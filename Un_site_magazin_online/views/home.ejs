@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Shopping App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: <%= theme === 'dark' ? '#222' : '#f5f5f5' %>;
+      color: <%= theme === 'dark' ? '#f5f5f5' : '#222' %>;
+    }
+    a { color: <%= theme === 'dark' ? '#9cf' : '#06c' %>; }
+  </style>
+</head>
+<body>
+  <h1>Shopping App</h1>
+
+  <% if (user) { %>
+    <p>Bun venit, <strong><%= user.name %></strong>!</p>
+    <p>
+      <a href="/shop">Mergi la magazin</a> |
+      <a href="/profile">Profil (Gravatar + accesări)</a> |
+      <a href="/logout">Logout</a>
+    </p>
+  <% } else { %>
+    <p>
+      <a href="/login">Login</a> |
+      <a href="/register">Register</a>
+    </p>
+  <% } %>
+
+  <p>
+    Tema curentă: <strong><%= theme %></strong> |
+    Schimbă tema:
+    <a href="/shop">via zona protejată</a> (link-ul de schimbare e acolo).
+  </p>
+</body>
+</html>
