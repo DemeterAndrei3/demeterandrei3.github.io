@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Magazin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: <%= theme === 'dark' ? '#222' : '#fff' %>;
+      color: <%= theme === 'dark' ? '#eee' : '#111' %>;
+    }
+    a { color: <%= theme === 'dark' ? '#9cf' : '#06c' %>; }
+  </style>
+</head>
+<body>
+  <h1>Magazin</h1>
+
+  <p>Bun venit, <strong><%= user.name %></strong>!</p>
+
+  <p>Număr de vizite în această zonă (sesiune curentă): <strong><%= views %></strong></p>
+
+  <p>
+    Tema curentă: <strong><%= theme %></strong> |
+    Schimbă:
+    <a href="/theme/light">Light</a> |
+    <a href="/theme/dark">Dark</a>
+  </p>
+
+  <h2>Produse disponibile</h2>
+  <ul>
+    <% products.forEach(function(p) { %>
+      <li>
+        <strong><%= p.name %></strong> - <%= p.price %> RON
+        (<%= p.category %>)
+        - <a href="/shop/product/<%= p.id %>">Detalii</a>
+      </li>
+    <% }); %>
+  </ul>
+
+  <p>
+    <a href="/profile">Profil (Gravatar + accesări)</a> |
+    <a href="/logout">Logout</a> |
+    <a href="/">Home</a>
+  </p>
+</body>
+</html>
