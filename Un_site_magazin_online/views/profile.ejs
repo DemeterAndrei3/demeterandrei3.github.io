@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil</title>
+</head>
+<body>
+  <h1>Profil utilizator</h1>
+
+  <% if (user) { %>
+    <p>Email: <strong><%= user.email %></strong></p>
+    <p>Nume: <strong><%= user.name %></strong></p>
+  <% } else { %>
+    <p>Nu ești logat. Avatarul poate fi generat doar pentru utilizator logat.</p>
+  <% } %>
+
+  <% if (gravatarUrl) { %>
+    <p>Avatar (Gravatar):</p>
+    <img src="<%= gravatarUrl %>" alt="Gravatar" />
+  <% } else { %>
+    <p>Nu există gravatar (nu e email sau nu e logat).</p>
+  <% } %>
+
+  <p>Număr de accesări ale acestei pagini în sesiunea curentă: <strong><%= profileViews %></strong></p>
+
+  <p>
+    <a href="/shop">Înapoi la magazin</a> |
+    <a href="/">Home</a>
+  </p>
+</body>
+</html>
