@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title><%= product.name %> - Detalii</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: <%= theme === 'dark' ? '#222' : '#fff' %>;
+      color: <%= theme === 'dark' ? '#eee' : '#111' %>;
+    }
+    a { color: <%= theme === 'dark' ? '#9cf' : '#06c' %>; }
+  </style>
+</head>
+<body>
+  <h1><%= product.name %></h1>
+
+  <p>Preț: <strong><%= product.price %> RON</strong></p>
+  <p>Categorie: <strong><%= product.category %></strong></p>
+
+  <% if (lastProductId) { %>
+    <p>Ultimul produs vizualizat (din cookie): ID <strong><%= lastProductId %></strong></p>
+  <% } %>
+
+  <p>
+    <a href="/shop">Înapoi la magazin</a> |
+    <a href="/logout">Logout</a>
+  </p>
+</body>
+</html>
