@@ -1,0 +1,34 @@
+// LISTARE + SEARCH + SORT
+router.get("/", async (req, res) => {
+  const { search, sort } = req.query;
+
+  let query = {};
+
+  if (search) {
+    query.name = new RegExp(search, "i");
+  }
+
+  let products = Product.find(query).populate("createdBy", "username email");
+
+  if (sort) {
+    products = products.sort(sort);
+  }
+
+  products = await products;
+
+  res.render("products/index", { products });
+});
+
+// DETALII
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id)
+      .populate("createdBy", "username email");
+
+    if (!product) return res.status(404).send("Not found");
+
+    res.render("products/show", { product });
+  } catch {
+    res.status(404).send("Invalid ID");
+  }
+});
