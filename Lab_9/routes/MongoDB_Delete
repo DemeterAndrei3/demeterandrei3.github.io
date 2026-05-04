@@ -1,0 +1,4 @@
+router.post("/:id/delete", async (req, res) => {
+  await Product.findByIdAndDelete(req.params.id);
+  res.redirect("/products");
+});
