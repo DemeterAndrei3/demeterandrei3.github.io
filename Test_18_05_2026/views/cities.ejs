@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista orașe</title>
+</head>
+<body>
+  <h1>Lista orașe</h1>
+  <p><a href="/logout">Logout</a></p>
+  <p><a href="/search">Căutare oraș</a></p>
+
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Lat</th>
+        <th>Lng</th>
+        <th>Country</th>
+        <th>ISO</th>
+        <th>Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cities.forEach(c => { %>
+        <tr>
+          <td><a href="/city/<%= c._id %>"><%= c.city %></a></td>
+          <td><%= c.lat %></td>
+          <td><%= c.lng %></td>
+          <td><%= c.country %></td>
+          <td><%= c.iso %></td>
+          <td><%= c.capital ? 'Yes' : 'No' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
 
