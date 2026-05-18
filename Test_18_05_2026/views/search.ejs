@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Căutare oraș</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map { height: 400px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Căutare oraș</h1>
+  <p><a href="/cities">Înapoi la listă</a></p>
+
+  <form method="POST" action="/search">
+    <label>Nume oraș:</label>
+    <input type="text" name="q" required />
+    <button type="submit">Caută</button>
+  </form>
+
+  <% if (message) { %>
+    <p style="color:red;"><%= message %></p>
+  <% } %>
+
+  <% if (city) { %>
+    <h2>Rezultat: <%= city.city %> (<%= city.country %>)</h2>
+    <ul>
+      <li>Lat: <%= city.lat %></li>
+      <li>Lng: <%= city.lng %></li>
+      <li>Country: <%= city.country %></li>
+      <li>ISO: <%= city.iso %></li>
+      <li>Capital: <%= city.capital ? 'Yes' : 'No' %></li>
+    </ul>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      const lat = <%= city.lat %>;
+      const lng = <%= city.lng %>;
+
+      const map = L.map('map').setView([lat, lng], 10);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([lat, lng]).addTo(map)
+        .bindPopup('<%= city.city %>')
+        .openPopup();
+    </script>
+  <% } %>
+</body>
+</html>
 
