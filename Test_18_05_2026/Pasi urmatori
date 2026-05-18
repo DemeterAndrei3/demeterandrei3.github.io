@@ -1,0 +1,10 @@
+Ce mai trebuie de facut:
+
+1. Rulezi scriptul de populare:
+node scripts/seedCities.js
+
+2. Pornești serverul:
+node app.js
+
+3. Intri în browser:
+http://localhost:3000/login
