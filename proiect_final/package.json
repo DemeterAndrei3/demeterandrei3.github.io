@@ -1,0 +1,26 @@
+{
+  "name": "proiect-auth",
+  "version": "1.0.0",
+  "description": "Sistem de autentificare si inregistrare cu Node.js, Express si MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "auth",
+    "login",
+    "register"
+  ],
+  "author": "Andrei",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^8.3.1"
+  }
+}
